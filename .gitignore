@@ -1,0 +1,90 @@
+# ============================================================
+# Vargas Pizza — .gitignore
+# Cubre lo genérico y lo específico de cada stack candidato
+# (Tauri/Rust, Electron/Node, .NET/WPF, Flutter, Python+Qt).
+# Se puede podar cuando el stack quede decidido.
+# ============================================================
+
+# --- Dependencias ---
+node_modules/
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/install-state.gz
+
+# --- Build / salida ---
+dist/
+dist-*/
+build/
+out/
+.output/
+.next/
+.nuxt/
+.svelte-kit/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# --- Rust / Tauri (si el stack elegido es Tauri) ---
+target/
+src-tauri/target/
+src-tauri/gen/
+
+# --- .NET / WPF / WinUI (si el stack elegido es .NET) ---
+bin/
+obj/
+publish/
+*.user
+*.suo
+*.userosscache
+
+# --- Flutter (si el stack elegido es Flutter) ---
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# --- Python (si el stack elegido es Python + Qt) ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Variables de entorno y secretos ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+
+# --- DATOS REALES DE CLIENTES: nunca versionar ---
+# Bases locales, copias de seguridad y cualquier export con datos.
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+Copia de seguridad/
+copia-seguridad/
+backups/
+*.bak
+*.backup
+*.dump
+
+# --- Logs ---
+*.log
+logs/
+
+# --- Editor / sistema operativo ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

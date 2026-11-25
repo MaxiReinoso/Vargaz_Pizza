@@ -6,76 +6,92 @@
     "created_by": "discovery-research",
     "sources": [],
     "competitors": [],
-    "problema": "Vargas Pizza recibe pedidos por WhatsApp, los anota en una comanda de papel y los vuelve a cargar a mano en un Excel: doble carga, cuentas manuales y tiempo perdido en el momento de mayor presión.",
+    "problema": "Vargas Pizza recibe pedidos por WhatsApp, los anota en una comanda de papel y los vuelve a cargar a mano en un Excel: doble carga, cuentas manuales y tiempo perdido en el momento de mayor presion.",
     "usuarios": [
-      "Quien atiende el mostrador (único rol, sin login ni multiusuario)"
+      "Quien atiende el mostrador (unico rol, sin login ni multiusuario)"
+    ],
+    "datos_confirmados": [
+      "Sistema operativo del local: Windows 10 (confirmado por el cliente)",
+      "La impresora termica Ocom OCPP-812 ya esta instalada y configurada en la PC del local (confirmado por el cliente)",
+      "No se programa contra el modelo de impresora: se imprime via spooler de Windows contra la impresora elegida en configuracion",
+      "La validacion final de impresion es el boton Imprimir prueba el dia de la instalacion"
     ],
     "casos_de_uso": [
-      "Tomar un pedido cargando nombre, teléfono, tipo, dirección, productos por código, horario estimado y forma de pago",
-      "Ver el total actualizarse automáticamente al agregar o quitar ítems",
-      "Imprimir la comanda automáticamente en la térmica al confirmar el pedido",
+      "Tomar un pedido cargando nombre, telefono, tipo, direccion, productos por codigo, horario estimado y forma de pago",
+      "Ver el total actualizarse automaticamente al agregar o quitar items",
+      "Imprimir la comanda automaticamente en la termica al confirmar el pedido",
       "Reimprimir cualquier pedido del historial",
-      "Autocompletar nombre y último domicilio al escribir el teléfono",
-      "Editar el menú: productos, presentaciones, precios y códigos",
+      "Autocompletar nombre y ultimo domicilio al escribir el telefono",
+      "Editar el menu: productos, presentaciones, precios y codigos",
       "Corregir o anular un pedido del historial sin borrar el registro",
-      "Respaldar la base automáticamente al cerrar la app, más botón manual"
+      "Respaldar la base automaticamente al cerrar, en la primera apertura de cada dia y con boton manual"
     ],
     "funcionalidades_necesarias": [
-      "Carga de pedido: nombre, teléfono, mostrador/domicilio, dirección, productos por código, horario estimado editable, forma de pago",
-      "Menú con códigos de 4 dígitos por presentación, agrupados bajo un producto (empanadas unidad/media docena/docena/surtida, lomo completo/mitad, papas 2 tamaños)",
-      "Opciones por ítem: nota libre impresa + opciones configurables por producto desde el editor de menú",
-      "Total automático sin costo de envío",
-      "Comanda impresa automáticamente en térmica 80 mm con número, hora, nombre, teléfono, domicilio, código + producto, precio por ítem y total",
-      "Editor de menú: alta, edición y baja de productos, presentaciones, precios y códigos",
-      "Clientes guardados por teléfono con último domicilio editable",
-      "Historial de pedidos con corrección y anulación",
-      "Copia de seguridad local automática al cerrar + botón manual"
+      "Carga de pedido: nombre, telefono, mostrador/domicilio, direccion, productos por codigo, horario estimado editable, forma de pago",
+      "Menu con codigos de 4 digitos por presentacion, agrupados bajo un producto (empanadas unidad/media docena/docena/surtida, lomo completo/mitad, papas 2 tamanos)",
+      "Opciones por item: nota libre impresa + opciones configurables por producto desde el editor de menu",
+      "Total automatico sin costo de envio",
+      "Comanda impresa automaticamente en termica 80 mm con numero, hora, nombre, telefono, domicilio, codigo + producto, precio por item y total",
+      "Editor de menu: alta, edicion y baja de productos, presentaciones, precios y codigos",
+      "Clientes guardados por telefono con ultimo domicilio editable",
+      "Historial de pedidos con correccion y anulacion",
+      "Copia de seguridad local: automatica al cerrar, automatica en la primera apertura de cada dia, y manual"
     ],
     "funcionalidades_opcionales": [
-      "Exportación a Excel (primera función de la versión siguiente)",
-      "Integración con WhatsApp",
-      "Cierre de caja, stock, reportes y cálculo de vuelto",
-      "Actualizaciones automáticas",
+      "Exportacion a Excel (primera funcion de la version siguiente)",
+      "Integracion con WhatsApp",
+      "Cierre de caja, stock, reportes y calculo de vuelto",
+      "Actualizaciones automaticas",
       "Logo y datos del local en la comanda"
     ],
     "reglas_de_negocio": [
-      "Cada presentación tiene su propio código de 4 dígitos y cuelga de un producto padre",
-      "La presentación surtida tiene precio propio, distinto de la docena común",
-      "Total = suma de ítems; sin costo de envío, descuentos ni recargos en la beta",
-      "El pedido congela el precio del ítem al momento de cargarlo",
-      "Numeración de comanda correlativa diaria, reinicia a 1 cada día y no por turno",
+      "Cada presentacion tiene su propio codigo de 4 digitos y cuelga de un producto padre",
+      "La presentacion surtida tiene precio propio, distinto de la docena comun",
+      "Total = suma de items; sin costo de envio, descuentos ni recargos en la beta",
+      "El pedido congela el precio del item al momento de cargarlo",
+      "Numeracion de comanda correlativa diaria, reinicia a 1 cada dia y no por turno",
       "Anular no borra: el pedido queda marcado con fecha y hora",
-      "Corregir un pedido lo reimprime automáticamente y deja registro de la corrección",
-      "Las opciones por producto se definen en el editor de menú, no en código",
-      "Carga teclado primero: foco en el código, Enter agrega, Tab navega, atajos para confirmar e imprimir",
-      "Sin login: un único usuario implícito"
+      "Corregir un pedido lo reimprime automaticamente y deja registro de la correccion",
+      "Las opciones por producto se definen en el editor de menu, no en codigo",
+      "Carga teclado primero: foco en el codigo, Enter agrega, Tab navega, atajos para confirmar e imprimir",
+      "Copia de seguridad automatica al cerrar, automatica en la primera apertura de cada dia y manual; retencion de 30 dias",
+      "Sin login: un unico usuario implicito"
     ],
     "integraciones": [
-      "Spooler de impresión de Windows: impresora elegida en configuración, impresión silenciosa sin diálogo por pedido",
-      "Ninguna integración en la nube, WhatsApp, API de terceros ni telemetría"
+      "Spooler de impresion de Windows: impresora elegida en configuracion, impresion silenciosa sin dialogo por pedido",
+      "Ninguna integracion en la nube, WhatsApp, API de terceros ni telemetria"
     ],
     "restricciones": [
       "100% offline con datos locales en SQLite",
-      "Hardware: Intel Celeron N4020 1.10 GHz, 4 GB de RAM, Windows 10, conviviendo con WhatsApp",
-      "Metas medibles de rendimiento: arranque en frío <= 3 s, RAM <= 150 MB, alta de ítem < 150 ms, impresión < 2 s",
-      "Impresión térmica 80 mm silenciosa, sin diálogo por pedido, con Imprimir prueba y Reimprimir; ancho de papel y tamaño de letra configurables",
-      "No se programa contra un modelo de impresora; se usa la impresora instalada en Windows (referencia Ocom OCPP-812, desarrollo con Microsoft Print to PDF)",
-      "Instalador .exe para Windows generado con GitHub Actions al crear un tag y publicado en GitHub Releases, sin firma de código",
+      "Hardware del local: Intel Celeron N4020 1.10 GHz, 4 GB de RAM, Windows 10 confirmado, conviviendo con WhatsApp",
+      "Rendimiento medible: arranque en frio <= 3 s (mediana de 3, primera ejecucion tras reiniciar Windows, hasta que la pantalla acepta el primer codigo)",
+      "Rendimiento medible: RAM <= 150 MB como SUMA del Working Set PRIVADO (memoria privada) de TODOS los procesos de la app, incluidos subprocesos del webview, con un pedido cargado y 10 minutos de uso normal, medido en la PC del local o una equivalente. Se usa el privado y no el total porque el total cuenta dos veces las paginas compartidas",
+      "Rendimiento medible: alta de item < 150 ms (Enter hasta item visible y total actualizado, mediana de 20) e impresion < 2 s (hasta entrega al spooler)",
+      "Impresion termica 80 mm silenciosa, sin dialogo por pedido, con Imprimir prueba y Reimprimir; ancho de papel y tamano de letra configurables",
+      "No se programa contra un modelo de impresora; se usa la impresora instalada en Windows. La Ocom OCPP-812 ya esta en uso en el local",
+      "Microsoft Print to PDF NO sirve para validar impresion silenciosa: siempre abre dialogo para elegir donde guardar. Solo sirve para inspeccion visual",
+      "Estrategia de prueba de impresion: tests del render a bytes (ancho 80mm, tamano de letra, wrapping, totales); impresion silenciosa real contra impresora local de prueba con puerto FILE: o driver Generic/Text Only; modo desarrollo que escribe los bytes exactos enviados; validacion final en el local con Imprimir prueba, reimpresion y prueba de error",
+      "Instalador .exe para Windows generado con GitHub Actions al crear un tag y publicado en GitHub Releases, sin firma de codigo",
+      "Costo de desarrollo en la maquina del desarrollador (medido): AMD 3020e, 2 nucleos a 1.2 GHz, 5.9 GB RAM usables con ~0.3 GB libres en uso normal, HDD 2 TB con ~1032 GB libres, Windows 10 Pro for Workstations x64",
+      "Toolchain instalado en la maquina del desarrollador: Node 24.20.0, npm 12.0.2, git 2.55, Python 3.13.7, WebView2 158.x. NO instalado: Rust/cargo, .NET SDK, Flutter, Visual Studio Build Tools, cmake, gcc",
       "Desarrollador principiante que trabaja con agentes de IA: el stack debe ser productivo y con errores comprensibles"
     ],
     "riesgos": [
-      "Impresión silenciosa desde una app de escritorio en Windows (drivers, spooler, PDF virtual): riesgo #1, mitigado por el primer change del roadmap",
-      "Rendimiento real en el Celeron N4020 con WhatsApp abierto: supuesto sin probar",
+      "Impresion silenciosa desde una app de escritorio en Windows (drivers, spooler, PDF virtual): riesgo #1, mitigado por el primer change del roadmap, validado con tests del render + impresora local de prueba con puerto FILE: (imprime sin dialogo)",
+      "Rendimiento real en el Celeron N4020 con WhatsApp abierto: supuesto sin probar, se mide con la app real",
       "El instalador sin firma dispara SmartScreen: requiere instrucciones claras para el cliente",
-      "Curva de aprendizaje del stack si incluye Rust: evaluar el costo de aprendizaje, no solo el consumo de RAM",
+      "Curva de aprendizaje del stack si incluye Rust (no esta instalado en la maquina del desarrollador): evaluar el costo de aprendizaje, no solo el consumo de RAM",
       "El menu real (productos, codigos, precios) no esta digitalizado: hay que cargarlo antes de la beta",
-      "La impresora real no esta disponible durante el desarrollo: validar con Imprimir prueba el dia de la entrega",
+      "La impresora real esta en el local, no en el equipo de desarrollo: validar con Imprimir prueba el dia de la instalacion",
+      "Maquina de desarrollo con 2 nucleos, 6 GB y ~0.3 GB de RAM libre: el toolchain, la compilacion y el ciclo de prueba tienen costo real",
       "Corte de luz en medio de un pedido: supuesto de guardado inmediato + recuperacion del borrador",
-      "La PC del local es tambien la PC de WhatsApp: riesgo operativo de tocar o borrar archivos, mitigado por backup automatico"
+      "La PC del local es tambien la PC de WhatsApp: riesgo operativo de tocar o borrar archivos, mitigado por backup automatico al cerrar y al abrir"
     ],
     "preguntas_abiertas": [
-      "Ya esta comprada e instalada la impresora termica? La validacion final depende de probarla",
       "El cliente tiene la lista de productos, codigos y precios en algun formato para cargar el menu inicial?",
+      "Las pizzas tienen distintos tamanos? Si si, cada tamano necesita codigo y precio propio o hay una regla de precio por tamano",
+      "Se piden pizzas mitad y mitad de dos variedades? Si si: como se codifica, como se calcula el precio y como se imprime en la comanda",
+      "Empanada surtida: que variedades lleva y se detalla en la comanda, o se imprime solo surtida?",
       "Si se corta la luz en medio de un pedido, el cliente prefiere recuperar el borrador o empezar de cero?",
       "Acuerdo comercial pendiente: no bloquea el desarrollo pero conviene cerrarlo antes de la entrega",
       "Hay mas de una persona que carga pedidos en la misma PC? No hay login; solo importa para autoria futura",
@@ -88,17 +104,16 @@
       "Opciones por item: nota libre + opciones configurables por producto desde el editor de menu",
       "Carga teclado primero como requisito, no como nice-to-have",
       "El pedido congela el precio del item al momento de cargarlo",
-      "Copia de seguridad automatica al cerrar + boton manual, carpeta configurable con default Documentos\\Vargas Pizza\\Copia de seguridad, retencion 30 dias",
+      "Copia de seguridad: automatica al cerrar, automatica en la primera apertura de cada dia y manual; carpeta configurable con default Documentos\\Vargas Pizza\\Copia de seguridad; retencion 30 dias",
       "Sin analisis de competidores"
     ],
     "supuestos": [
-      "Windows 10 en la PC del local",
       "Telefono opcional en mostrador y recomendado en domicilio",
       "Horario estimado precargado en ahora + 40 min, siempre editable",
       "La numeracion diaria no se reinicia por turno",
       "Forma de pago se imprime en la comanda; no hay calculo de vuelto",
       "La comanda no lleva logo ni datos del local en la beta",
-      "Metas de rendimiento: <= 3 s arranque, <= 150 MB RAM, < 150 ms por item, < 2 s por impresion"
+      "Metas de rendimiento: <= 3 s arranque, <= 150 MB RAM (suma del Working Set privado de todos los procesos), < 150 ms por item, < 2 s por impresion"
     ]
   }
 }
