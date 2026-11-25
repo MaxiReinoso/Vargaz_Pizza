@@ -45,7 +45,10 @@
 - **Windows:** [PREGUNTAR versión]
 
 ## 5. Hardware e integraciones
-- Impresora Ocom OCPP-812, USB + LAN, 80 mm (impresión por red, a confirmar).
+- Impresión en la impresora térmica de 80 mm instalada en Windows, elegida
+  desde una pantalla de configuración (modelo de referencia: Ocom OCPP-812,
+  USB + LAN). Botón de impresión de prueba y de reimpresión por pedido.
+- Ancho de papel y tamaño de letra de la comanda configurables.
 - WhatsApp: sin integración, el pedido se carga a mano.
 
 ## 6. Alcance
