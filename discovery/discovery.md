@@ -27,7 +27,7 @@ Una sola PC, sin login, sin multiusuario, sin permisos diferenciados. No hay rol
 5. **Buscar cliente por teléfono**: como quien atiende, quiero que al tipear el teléfono se carguen nombre y último domicilio, para no preguntar los datos de nuevo.
 6. **Editar el menú**: como dueño, quiero crear, editar y quitar productos, presentaciones, precios y códigos, para mantener la carta al día sin depender del desarrollador.
 7. **Corregir o anular**: como quien atiende, quiero corregir o anular un pedido del historial, para arreglar un error sin romper la trazabilidad.
-8. **Respaldar**: como dueño, quiero que la base se copie sola al cerrar la app y en la primera apertura de cada día, más un botón manual, para no perder el historial si la PC falla o se apaga de golpe.
+8. **Respaldar**: como dueño, quiero que la base se copie sola al cerrar la app y en la primera apertura de cada día operativo, más un botón manual, para no perder el historial si la PC falla o se apaga de golpe.
 
 ## 4. Competidores / soluciones existentes
 
@@ -49,7 +49,7 @@ No se relevaron competidores comerciales. El análisis se consideró de bajo val
 6. **Editor de menú**: alta, edición y baja de productos, presentaciones, precios y códigos.
 7. **Clientes guardados**: al escribir el teléfono se autocompletan nombre y último domicilio; el domicilio es editable en cada pedido.
 8. **Historial de pedidos** con corrección y anulación.
-9. **Copia de seguridad local** automática al cerrar, automática en la primera apertura de cada día y con botón manual.
+9. **Copia de seguridad local** automática al cerrar, automática en la primera apertura de cada día operativo y con botón manual.
 
 ## 6. Funcionalidades opcionales (post-beta)
 
@@ -65,12 +65,12 @@ No se relevaron competidores comerciales. El análisis se consideró de bajo val
 - **Precio por presentación**: la surtida tiene precio propio, distinto del de la docena común.
 - **Total**: suma de ítems. No hay costo de envío, descuentos ni recargos en la beta.
 - **Precio congelado**: el pedido guarda el precio vigente al momento de cargar el ítem. Cambiar precios en el menú no altera pedidos existentes.
-- **Numeración de comanda**: correlativa diaria, reinicia a 1 cada día. No se reinicia por turno.
+- **Numeración de comanda**: correlativa por **día operativo**, reinicia a 1 con el primer pedido de cada día operativo. El día operativo arranca a la hora de corte configurable (`operacion.hora_corte`, default 06:00), así un pedido después de medianoche sigue en el día anterior. No se reinicia por turno.
 - **Anulación**: el pedido nunca se borra. Queda marcado como anulado con fecha y hora.
 - **Corrección**: corregir un pedido lo reimprime automáticamente y deja registro de la corrección.
 - **Opciones por producto**: se definen en el editor de menú, no en código.
 - **Carga teclado primero**: foco automático en el código, Enter agrega, Tab navega, atajos para confirmar/imprimir.
-- **Copia de seguridad**: automática al cerrar la app, automática en la primera apertura de cada día y manual desde configuración. Retención de 30 días. La copia de apertura cubre el caso de una PC que se apaga de golpe o una app que queda abierta todo el día, donde el cierre nunca se ejecuta.
+- **Copia de seguridad**: automática al cerrar la app, automática en la primera apertura de cada día operativo y manual desde configuración. Retención de 30 días. La copia de apertura cubre el caso de una PC que se apaga de golpe o una app que queda abierta todo el día, donde el cierre nunca se ejecuta.
 - **Sin login**: un solo usuario implícito.
 
 ## 8. Integraciones
@@ -112,7 +112,7 @@ No se relevaron competidores comerciales. El análisis se consideró de bajo val
 | La impresora real está en el local, no en el equipo de desarrollo | Restricción | La app se diseña contra el spooler de Windows, no contra el modelo. La validación final es *Imprimir prueba* el día de la instalación, con la impresora que ya está en uso. |
 | Máquina de desarrollo con 2 núcleos, 6 GB y ~0.3 GB de RAM libre | Restricción operativa | Elegir un stack con toolchain chico, compilación incremental rápida y pocos procesos en segundo plano; medir el ciclo de prueba antes de comprometerse. |
 | Corte de luz en medio de un pedido | Supuesto sin probar | Guardado inmediato en SQLite y recuperación del borrador al abrir. |
-| La PC del local es también la PC de WhatsApp: alguien puede tocar la base o borrar archivos | Riesgo operativo | Copia de seguridad automática al cerrar y al abrir el día + carpeta de backup separada. |
+| La PC del local es también la PC de WhatsApp: alguien puede tocar la base o borrar archivos | Riesgo operativo | Copia de seguridad automática al cerrar y al abrir el día operativo + carpeta de backup separada. |
 
 ## 11. Preguntas abiertas
 
@@ -155,5 +155,6 @@ Estas sí quedaron decididas por el desarrollador en esta fase:
 4. **Opciones por ítem**: nota libre + opciones configurables por producto desde el editor de menú.
 5. **Carga teclado primero** como requisito, no como nice-to-have.
 6. **El pedido congela el precio** del ítem al momento de cargarlo.
-7. **Copia de seguridad**: automática al cerrar la app, automática en la primera apertura de cada día y manual con botón. Carpeta configurable (default `Documentos\Vargas Pizza\Copia de seguridad`), retención de 30 días.
-8. **Sin análisis de competidores**.
+7. **Copia de seguridad**: automática al cerrar la app, automática en la primera apertura de cada día operativo y manual con botón. Carpeta configurable (default `Documentos\Vargas Pizza\Copia de seguridad`), retención de 30 días.
+8. **Día operativo**: numeración de comandas y copia diaria usan una hora de corte configurable (default 06:00), no el día calendario, porque el local puede atender pasada la medianoche.
+9. **Sin análisis de competidores**.

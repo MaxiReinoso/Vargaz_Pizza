@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "step": "discovery",
+  "step": "visual-design",
   "owner": "active-orchestrator",
   "discovery": {
     "created_by": "discovery-research",
@@ -49,12 +49,12 @@
       "La presentacion surtida tiene precio propio, distinto de la docena comun",
       "Total = suma de items; sin costo de envio, descuentos ni recargos en la beta",
       "El pedido congela el precio del item al momento de cargarlo",
-      "Numeracion de comanda correlativa diaria, reinicia a 1 cada dia y no por turno",
+      "Numeracion de comanda correlativa por DIA OPERATIVO, reinicia a 1 con el primer pedido de cada dia operativo; el dia operativo arranca a una hora de corte configurable (default 06:00) para cubrir pedidos despues de medianoche; no se reinicia por turno",
       "Anular no borra: el pedido queda marcado con fecha y hora",
       "Corregir un pedido lo reimprime automaticamente y deja registro de la correccion",
       "Las opciones por producto se definen en el editor de menu, no en codigo",
       "Carga teclado primero: foco en el codigo, Enter agrega, Tab navega, atajos para confirmar e imprimir",
-      "Copia de seguridad automatica al cerrar, automatica en la primera apertura de cada dia y manual; retencion de 30 dias",
+      "Copia de seguridad automatica al cerrar, automatica en la primera apertura de cada dia operativo y manual; retencion de 30 dias",
       "Sin login: un unico usuario implicito"
     ],
     "integraciones": [
@@ -104,7 +104,12 @@
       "Opciones por item: nota libre + opciones configurables por producto desde el editor de menu",
       "Carga teclado primero como requisito, no como nice-to-have",
       "El pedido congela el precio del item al momento de cargarlo",
-      "Copia de seguridad: automatica al cerrar, automatica en la primera apertura de cada dia y manual; carpeta configurable con default Documentos\\Vargas Pizza\\Copia de seguridad; retencion 30 dias",
+      "Copia de seguridad: automatica al cerrar, automatica en la primera apertura de cada dia operativo y manual; carpeta configurable con default Documentos\\Vargas Pizza\\Copia de seguridad; retencion 30 dias",
+      "Dia operativo con hora de corte configurable (default 06:00) para numeracion de comandas y disparador de copia diaria",
+      "Stack elegido: C# + .NET 10 LTS + WPF (MVVM) + SQLite (Microsoft.Data.Sqlite) + xUnit",
+      "Impresion: camino principal por driver de Windows (System.Drawing.Printing), respaldo ESC/POS crudo por WritePrinter, ambos detras de IComandaPrinter; camino de archivo para desarrollo",
+      "Sin precio adicional en opciones de producto hasta confirmacion del cliente",
+      "Orden de construccion: nucleo primero (menu, carga por codigo, total, impresion, historial basico); opciones configurables y correcciones con snapshot en segunda iteracion",
       "Sin analisis de competidores"
     ],
     "supuestos": [
@@ -114,6 +119,31 @@
       "Forma de pago se imprime en la comanda; no hay calculo de vuelto",
       "La comanda no lleva logo ni datos del local en la beta",
       "Metas de rendimiento: <= 3 s arranque, <= 150 MB RAM (suma del Working Set privado de todos los procesos), < 150 ms por item, < 2 s por impresion"
+    ]
+  },
+  "kb": {
+    "created_by": "kb-creator",
+    "source": "ingest",
+    "discovery": {
+      "problem": "Vargas Pizza carga pedidos por WhatsApp en papel y despues a mano en Excel: doble carga, cuentas manuales y tiempo perdido en hora pico.",
+      "system_type": "desktop",
+      "domain": "gastronomia / punto de venta",
+      "scale": "single_user",
+      "stack": "C# + .NET 10 LTS + WPF (MVVM) + SQLite (Microsoft.Data.Sqlite) + xUnit",
+      "needs_infra": false
+    },
+    "files": [
+      "knowledge-base/README.md",
+      "knowledge-base/01_vision_y_objetivos.md",
+      "knowledge-base/02_descripcion_general.md",
+      "knowledge-base/03_actores_y_roles.md",
+      "knowledge-base/04_modelo_de_datos.md",
+      "knowledge-base/05_reglas_de_negocio.md",
+      "knowledge-base/06_funcionalidades.md",
+      "knowledge-base/07_flujos_principales.md",
+      "knowledge-base/08_arquitectura_propuesta.md",
+      "knowledge-base/09_decisiones_y_supuestos.md",
+      "knowledge-base/10_preguntas_abiertas.md"
     ]
   }
 }

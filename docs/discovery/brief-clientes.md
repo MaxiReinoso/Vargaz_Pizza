@@ -1,4 +1,4 @@
-# Brief de cliente — App de pedidos para Vargas Pizza (v4)
+# Brief de cliente — App de pedidos para Vargas Pizza (v5)
 
 ## 1. Contexto
 - Cliente: Vargas Pizza (el dueño es el padre del desarrollador)
@@ -39,10 +39,13 @@
    anular** un pedido.
 9. **Copia de seguridad** local en una carpeta "Copia de seguridad":
    automática al cerrar la app, automática en la primera apertura de
-   cada día y manual con un botón.
+   cada día operativo y manual con un botón.
 
 ## 4. Reglas de negocio
-- **Numeración de comanda:** correlativa diaria, reinicia a 1 cada día.
+- **Numeración de comanda:** correlativa por **día operativo**, reinicia
+  a 1 con el primer pedido de cada día operativo. El día operativo
+  arranca a una hora de corte configurable (por defecto 06:00), así un
+  pedido después de medianoche sigue en el día anterior.
 - **Anular un pedido no lo borra:** queda en el historial marcado como
   anulado, con fecha y hora.
 - **Corregir un pedido lo reimprime automáticamente** y deja registro de
@@ -51,8 +54,8 @@
   cargarlo.
 - **Total:** suma de los ítems. Sin costo de envío.
 - **Copia de seguridad:** automática al cerrar, automática en la primera
-  apertura de cada día y manual. Carpeta configurable, retención de
-  30 días.
+  apertura de cada día operativo y manual. Carpeta configurable,
+  retención de 30 días.
 - **Si la impresión falla**, el pedido se guarda igual y la app ofrece
   reimprimirlo.
 
